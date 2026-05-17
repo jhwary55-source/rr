@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta property="og:type" content="website">
+<meta property="og:url" content="https://plc12.netlify.app/">
+<meta property="og:title" content="شركة رواد الأنظمة | Pioneers of Law Co.">
+<meta property="og:description" content="خدمات قانونية متخصصة باحترافية عالية">
+<meta property="og:image" content="https://plc12.netlify.app/images/plc.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://plc12.netlify.app/">
+<meta name="twitter:title" content="شركة رواد الأنظمة | Pioneers of Law Co.">
+<meta name="twitter:description" content="خدمات قانونية متخصصة باحترافية عالية">
+<meta name="twitter:image" content="https://plc12.netlify.app/images/plc.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  المدونة القانونية
+</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2d5869;
+            --secondary-color: #c5a059;
+            --criminal-color: #991b1b;
+            --card-gradient: linear-gradient(145deg, #2d5869 0%, #1d3640 100%);
+            --criminal-gradient: linear-gradient(145deg, #991b1b 0%, #450a0a 100%);
+            --text-dark: #1f2937;
+            --bg-light: #f1f5f9;
+        }
+
+        body {
+            font-family: 'Noto Kufi Arabic', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .back-nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 50;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--primary-color);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .preview-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .preview-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background: var(--card-gradient);
+            padding: 20px;
+            text-align: center;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-header.criminal {
+            background: var(--criminal-gradient);
+        }
+
+        .card-body {
+            padding: 20px;
+            position: relative;
+            height: 110px;
+            overflow: hidden;
+        }
+
+        .fade-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 90%);
+            pointer-events: none;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            max-width: 850px;
+            margin: 20px auto;
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1100;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .header-gradient { background: var(--card-gradient); }
+        .header-gradient.criminal { background: var(--criminal-gradient); }
+        .article-content { padding: 40px; line-height: 1.8; }
+
+        .section-title {
+            color: var(--primary-color);
+            position: relative;
+            padding-right: 15px;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            border-right: 5px solid var(--secondary-color);
+        }
+
+        .section-title.criminal-title {
+            color: var(--criminal-color);
+            border-right-color: #ef4444;
+        }
+
+        .summary-box {
+            background: #f0f7f9;
+            border-right: 5px solid var(--primary-color);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            font-weight: 500;
+            color: #334155;
+        }
+
+        .summary-box.criminal-box {
+            background: #fef2f2;
+            border-right-color: var(--criminal-color);
+        }
+
+        .tag {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 50px;
+            background: #f1f5f9;
+            color: #475569;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .tag.tag-criminal {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .legal-tip {
+            background: #fffbeb;
+            border: 1px dashed #d97706;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="back-nav">
+    <a href="index.html#legal-blog" class="back-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <span>العودة للرئيسية</span>
+    </a>
+</nav>
+
+    <header class="text-center mb-10 pt-10">
+        <h1 class="text-3xl font-black mb-2" style="color: var(--primary-color);">المدونة القانونية
+</h1>
+        <p class="text-gray-500 text-sm">استكشف أشهر المقالات القانونية التي تساعدك على فهم الأنظمة والحقوق والإجراءات القانونية.</p>
+    </header>
+
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="filterCards('all')">الكل</button>
+        <button class="filter-btn" onclick="filterCards('general')">مقالات عامة</button>
+        <button class="filter-btn" onclick="filterCards('business')">شركات وأعمال</button>
+        <button class="filter-btn" onclick="filterCards('labor')">قضايا عمالية</button>
+        <button class="filter-btn" onclick="filterCards('personal')">أحوال شخصية</button>
+        <button class="filter-btn" onclick="filterCards('realestate')">عقارات ومالية</button>
+        <button class="filter-btn" onclick="filterCards('criminal')">مقالات جنائية</button>
+    </div>
+
+    <div class="cards-grid" id="cardsGrid">
+        
+        <div class="preview-card" data-category="general" onclick="openModal('m-gen-1')">
+            <div class="card-header"><h2 class="text-white text-sm font-bold">كيف تختار المحامي المناسب؟</h2></div>
+            <div class="card-body">
+                <span class="tag">مقالات عامة</span>
+                <p class="text-gray-600 text-xs">تعرف على المعايير المهنية والشخصية التي يجب توافرها في المحامي لضمان نجاح قضيتك.</p>
+                <div class="fade-overlay"></div>
+            </div>
+        </div>
+
+        <div class="preview-card" data-category="criminal" onclick="openModal('m-cri-1')">
+            <div class="card-header criminal"><h2 class="text-white text-sm font-bold">ماذا تفعل إذا تم استدعاؤك للتحقيق؟</h2></div>
+            <div class="card-body">
+                <span class="tag tag-criminal">مقالات جنائية</span>
+                <p class="text-gray-600 text-xs">دليل الخطوات القانونية والحقوقية عند تلقي استدعاء رسمي من مراكز الشرطة أو النيابة العامة.</p>
+                <div class="fade-overlay"></div>
+            </div>
+        </div>
+
+        <div class="preview-card" data-category="criminal" onclick="openModal('m-cri-2')">
+            <div class="card-header criminal"><h2 class="text-white text-sm font-bold">حقوق المتهم أثناء التحقيق</h2></div>
+            <div class="card-body">
+                <span class="tag tag-criminal">مقالات جنائية</span>
+                <p class="text-gray-600 text-xs">استعراض للضمانات القضائية التي كفلها نظام الإجراءات الجزائية للمتهم.</p>
+                <div class="fade-overlay"></div>
+            </div>
+        </div>
+
+        <div class="preview-card" data-category="criminal" onclick="openModal('m-cri-3')">
+            <div class="card-header criminal"><h2 class="text-white text-sm font-bold">الفرق بين القضايا الجنائية والمدنية</h2></div>
+            <div class="card-body">
+                <span class="tag tag-criminal">مقالات جنائية</span>
+                <p class="text-gray-600 text-xs">فهم الاختلاف الجوهري بين المسار الجنائي والمسار المدني.</p>
+                <div class="fade-overlay"></div>
+            </div>
+        </div>
+
+        <div class="preview-card" data-category="business" onclick="openModal('m-biz-1')">
+            <div class="card-header"><h2 class="text-white text-sm font-bold">تأسيس شركة في السعودية</h2></div>
+            <div class="card-body">
+                <span class="tag">شركات وأعمال</span>
+                <p class="text-gray-600 text-xs">الدليل الشامل للمتطلبات القانونية والخطوات الإجرائية لتأسيس الشركات وفق النظام الجديد.</p>
+                <div class="fade-overlay"></div>
+            </div>
+        </div>
+
+        <div class="preview-card" data-category="labor" onclick="openModal('m-lab-1')">
+            <div class="card-header"><h2 class="text-white text-sm font-bold">حقوق الموظف عند الإنهاء</h2></div>
+            <div class="card-body">
+                <span class="tag">قضايا عمالية</span>
+                <p class="text-gray-600 text-xs">استعراض لحقوق الموظف النظامية من مكافأة نهاية الخدمة والتعويضات.</p>
+                <div class="fade-overlay"></div>
+            </div>
+        </div>
+
+        <div class="preview-card" data-category="personal" onclick="openModal('m-per-1')">
+            <div class="card-header"><h2 class="text-white text-sm font-bold">إجراءات وحقوق الطلاق</h2></div>
+            <div class="card-body">
+                <span class="tag">أحوال شخصية</span>
+                <p class="text-gray-600 text-xs">دليل شامل حول مسار قضايا الطلاق في محكمة الأحوال الشخصية.</p>
+                <div class="fade-overlay"></div>
+            </div>
+        </div>
+
+        <div class="preview-card" data-category="realestate" onclick="openModal('m-re-2')">
+            <div class="card-header"><h2 class="text-white text-sm font-bold">تحصيل الديون نظاماً</h2></div>
+            <div class="card-body">
+                <span class="tag">عقارات ومالية</span>
+                <p class="text-gray-600 text-xs">الإجراءات القانونية الفعالة لتحصيل الديون المتعثرة واستخدام قضاء التنفيذ.</p>
+                <div class="fade-overlay"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- === MODALS CONTENT === -->
+
+    <!-- عامة 1: اختيار المحامي -->
+    <div id="m-gen-1" class="modal">
+        <div class="modal-content">
+            <div class="close-btn" onclick="closeModal('m-gen-1')">✕</div>
+            <header class="header-gradient p-12 text-center text-white">
+                <h2 class="text-2xl font-bold">كيف تختار المحامي المناسب لقضيتك؟</h2>
+            </header>
+            <div class="article-content">
+                <div class="summary-box">اختيار المحامي هو القرار الأهم الذي قد يحدد مصير قضيتك. لا تختار بناءً على الشهرة فقط، بل بناءً على الكفاءة في نوع قضيتك تحديداً.</div>
+                <h3 class="section-title">معايير الاختيار</h3>
+                <ul class="list-disc pr-6 text-gray-700 space-y-3">
+                    <li><strong>التخصص:</strong> تأكد أن المحامي متخصص في نوع قضيتك (جنائي، عمالي، تجاري).</li>
+                    <li><strong>التواصل الشفاف:</strong> المحامي الجيد هو من يشرح لك نقاط القوة والضعف بصراحة.</li>
+                    <li><strong>الخبرة العملية:</strong> ابحث عن محامٍ لديه سوابق ناجحة في قضايا مشابهة.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- جنائي 1: الاستدعاء -->
+    <div id="m-cri-1" class="modal">
+        <div class="modal-content">
+            <div class="close-btn" onclick="closeModal('m-cri-1')">✕</div>
+            <header class="header-gradient criminal p-12 text-center text-white">
+                <h2 class="text-2xl font-bold">ماذا تفعل إذا تم استدعاؤك للتحقيق؟</h2>
+            </header>
+            <div class="article-content">
+                <div class="summary-box criminal-box">تلقي استدعاء من الجهات الأمنية هو إجراء قانوني قد يكون لسماع الأقوال كشاهد أو للتحقيق كمشتبه به.</div>
+                <h3 class="section-title criminal-title">الخطوات الأولى</h3>
+                <p class="text-gray-700 mb-4">تحقق من صفة حضورك، والتزم بالموعد لتجنب صدور أمر قبض قهري. يحق لك طلب حضور محامي في جلسة التحقيق بالنيابة العامة.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- جنائي 2: حقوق المتهم -->
+    <div id="m-cri-2" class="modal">
+        <div class="modal-content">
+            <div class="close-btn" onclick="closeModal('m-cri-2')">✕</div>
+            <header class="header-gradient criminal p-12 text-center text-white">
+                <h2 class="text-2xl font-bold">حقوق المتهم أثناء التحقيق</h2>
+            </header>
+            <div class="article-content">
+                <div class="summary-box criminal-box">المتهم بريء حتى تثبت إدانته. نظام الإجراءات الجزائية يكفل لك الحماية من الإكراه والاعتداء.</div>
+                <h3 class="section-title criminal-title">أبرز الضمانات</h3>
+                <ul class="list-disc pr-6 text-gray-700 space-y-3">
+                    <li>حق الاستعانة بمحامٍ في جميع مراحل التحقيق.</li>
+                    <li>عدم جواز التوقيف لأكثر من 24 ساعة دون أمر من النيابة.</li>
+                    <li>بطلان الاعترافات الناتجة عن ضغط جسدي أو معنوي.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- جنائي 3: الفرق بين الجنائي والمدني -->
+    <div id="m-cri-3" class="modal">
+        <div class="modal-content">
+            <div class="close-btn" onclick="closeModal('m-cri-3')">✕</div>
+            <header class="header-gradient criminal p-12 text-center text-white">
+                <h2 class="text-2xl font-bold">الفرق بين القضايا الجنائية والمدنية</h2>
+            </header>
+            <div class="article-content">
+                <h3 class="section-title criminal-title">الجنائي (الحق العام)</h3>
+                <p class="text-gray-700">يهدف لعقاب الجاني (سجن، غرامة) لحماية أمن المجتمع. النيابة العامة هي من تمثله غالباً.</p>
+                <h3 class="section-title criminal-title">المدني (الحق الخاص)</h3>
+                <p class="text-gray-700">يهدف لتعويض المتضرر أو استرداد مال. النزاع يكون بين فرد وفرد أو شركة وشركة.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- شركات 1: تأسيس شركة -->
+    <div id="m-biz-1" class="modal">
+        <div class="modal-content">
+            <div class="close-btn" onclick="closeModal('m-biz-1')">✕</div>
+            <header class="header-gradient p-12 text-center text-white">
+                <h2 class="text-2xl font-bold">دليل تأسيس الشركات في السعودية</h2>
+            </header>
+            <div class="article-content">
+                <div class="summary-box">وفق نظام الشركات الجديد، أصبح التأسيس أكثر مرونة وسرعة عبر منصة "أعمال".</div>
+                <h3 class="section-title">الخطوات الإجرائية</h3>
+                <ul class="list-decimal pr-6 text-gray-700 space-y-3">
+                    <li>حجز الاسم التجاري عبر وزارة التجارة.</li>
+                    <li>صياغة عقد التأسيس (أو النظام الأساسي).</li>
+                    <li>إصدار السجل التجاري إلكترونياً.</li>
+                    <li>فتح حساب بنكي للشركة وإيداع رأس المال إن وجد.</li>
+                </ul>
+                <div class="legal-tip">تأكد من اختيار الكيان القانوني المناسب (ذات مسؤولية محدودة، مساهمة، أو شركة الشخص الواحد) بناءً على حجم استثمارك.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- عمالي 1: حقوق الإنهاء -->
+    <div id="m-lab-1" class="modal">
+        <div class="modal-content">
+            <div class="close-btn" onclick="closeModal('m-lab-1')">✕</div>
+            <header class="header-gradient p-12 text-center text-white">
+                <h2 class="text-2xl font-bold">حقوق الموظف عند إنهاء عقد العمل</h2>
+            </header>
+            <div class="article-content">
+                <div class="summary-box">يحدد نظام العمل السعودي حقوقاً واضحة للموظف لضمان عدم تعرضه للفصل التعسفي.</div>
+                <h3 class="section-title">المستحقات النظامية</h3>
+                <ul class="list-disc pr-6 text-gray-700 space-y-3">
+                    <li><strong>مكافأة نهاية الخدمة:</strong> تحسب بناءً على سنوات العمل.</li>
+                    <li><strong>مقابل الإجازات:</strong> تعويض مالي عن الرصيد غير المستخدم.</li>
+                    <li><strong>شهادة الخدمة:</strong> حق الموظف في الحصول على شهادة تبين خبرته.</li>
+                </ul>
+                <div class="legal-tip">في حال الفصل لسبب غير مشروع، يحق للموظف المطالبة بتعويض قد يصل لراتب 15 يوماً عن كل سنة خدمة في العقود غير محددة المدة.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- أحوال شخصية 1: الطلاق -->
+    <div id="m-per-1" class="modal">
+        <div class="modal-content">
+            <div class="close-btn" onclick="closeModal('m-per-1')">✕</div>
+            <header class="header-gradient p-12 text-center text-white">
+                <h2 class="text-2xl font-bold">إجراءات الطلاق وحقوق المرأة</h2>
+            </header>
+            <div class="article-content">
+                <div class="summary-box">نظام الأحوال الشخصية الجديد عزز من سرعة الفصل في قضايا النفقة والحضانة لضمان استقرار الأسرة.</div>
+                <h3 class="section-title">المسار القانوني</h3>
+                <p class="text-gray-700">يبدأ الطلاق بمحاولة الصلح عبر مركز المصالحة. في حال تعذر الصلح، يتم توثيق الطلاق وإحالة حقوق الحضانة والنفقة للقضاء للفصل فيها بصفة استعجالية.</p>
+                <h3 class="section-title">أبرز الحقوق</h3>
+                <ul class="list-disc pr-6 text-gray-700 space-y-2">
+                    <li>حق السكنى والنفقة خلال فترة العدة.</li>
+                    <li>حق الحضانة للأم (وفق ضوابط مصلحة المحضون).</li>
+                    <li>نفقة الأولاد المستمرة على الأب.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- عقارات 1: تحصيل الديون -->
+    <div id="m-re-2" class="modal">
+        <div class="modal-content">
+            <div class="close-btn" onclick="closeModal('m-re-2')">✕</div>
+            <header class="header-gradient p-12 text-center text-white">
+                <h2 class="text-2xl font-bold">تحصيل الديون عبر محكمة التنفيذ</h2>
+            </header>
+            <div class="article-content">
+                <div class="summary-box">محكمة التنفيذ هي الطريق الأسرع لاسترداد أموالك إذا كان لديك مستند نظامي (سند لأمر، شيك، عقد موثق).</div>
+                <h3 class="section-title">خطوات التنفيذ</h3>
+                <ul class="list-decimal pr-6 text-gray-700 space-y-3">
+                    <li>تقديم طلب تنفيذ إلكتروني عبر منصة "ناجز".</li>
+                    <li>صدور قرار 34 (تبليغ المدين).</li>
+                    <li>إذا لم يسدد خلال 5 أيام، يصدر قرار 46 (إجراءات حجز الأموال والمنع من السفر).</li>
+                </ul>
+                <div class="legal-tip">احرص دائماً على توثيق الديون عبر "سند لأمر" إلكتروني (منصة نافذ) لضمان سرعة التنفيذ دون الحاجة لجلسات قضائية طويلة.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterCards(category) {
+            const cards = document.querySelectorAll('.preview-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.innerText.includes(getCategoryName(category)) || (category === 'all' && btn.innerText === 'الكل')) {
+                    btn.classList.add('active');
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function getCategoryName(cat) {
+            const names = {
+                'general': 'عامة',
+                'business': 'شركات',
+                'labor': 'عمالية',
+                'personal': 'شخصية',
+                'realestate': 'عقارات',
+                'criminal': 'جنائية'
+            };
+            return names[cat] || '';
+        }
+
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if(modal) {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if(modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        window.onclick = function(event) {
+            if (event.target.className.includes('modal')) {
+                event.target.style.display = "none";
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السيرة الذاتية | مهند المحمدي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+       :root {
+        --primary-color: #2d5869;
+        --secondary-color: #c5a059;
+        /* التدرج المستخدم في البطاقات */
+        --card-gradient: linear-gradient(145deg, #2d5869 0%, #1d3640 100%);
+    }
+    
+    body {
+        font-family: 'Noto Sans Arabic', sans-serif;
+        /* التعديل الجديد للخلفية هنا */
+        background: linear-gradient(145deg, #e9eff0 0%, #e9eff0 100%);
+        background-attachment: fixed; /* لضمان ثبات الخلفية عند التمرير */
+        color: #f8fafc;
+        min-height: 100vh;
+    }
+       .header-section {
+    /* تدرج يدمج بين الأزرق العميق ولون الهوية الأساسي */
+    background: linear-gradient(135deg, #c5a059 0%, #2d5869 100%);
+    border-bottom: 2px solid var(--secondary-color);
+    position: relative;
+}
+        .section-card {
+            background: var(--card-gradient);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .section-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--secondary-color);
+        }
+        .section-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+        }
+        .badge {
+            background-color: rgba(197, 160, 89, 0.15);
+            color: #f8fafc;
+            border: 1px solid var(--secondary-color);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            display: inline-block;
+            margin: 4px;
+            font-weight: 500;
+        }
+        .profile-container {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 25px rgba(197, 160, 89, 0.3);
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .timeline-dot {
+            background-color: var(--secondary-color);
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 10px var(--secondary-color);
+        }
+        .back-btn {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+            font-weight: 700;
+        }
+        .back-btn:hover {
+            background-color: #d4af6a;
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.4);
+        }
+        h2 {
+            color: var(--secondary-color);
+            letter-spacing: 0.025em;
+        }
+        .text-muted {
+            color: rgba(248, 250, 252, 0.7);
+        }
+    </style>
+</head>
+<body class="pb-16">
+
+    <!-- Back Button -->
+    <div class="fixed top-6 right-6 z-50">
+        <a href="index.html#team" class="back-btn flex items-center gap-2 px-6 py-2 rounded-full shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            <span>العودة</span>
+        </a>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header-section text-white py-20 px-6">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12 text-center md:text-right">
+            <!-- Profile Image -->
+            <div class="profile-container shrink-0 order-1 md:order-2">
+                <img src="images2/moh.png" alt="[صورة مهند المحمدي]" class="profile-image" onerror="this.src='https://ui-avatars.com/api/?name=مهند+المحمدي&background=0a5368&color=c5a059&size=256'">
+            </div>
+            
+            <!-- Title Content -->
+            <div class="flex-grow order-2 md:order-1">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white">مهند المحمدي</h1>
+                <p class="text-2xl md:text-3xl font-light text-[#c5a059]">محامي ومستشار قانوني وعمالي</p>
+                <div class="mt-8 flex justify-center md:justify-start gap-4">
+                    <span class="flex items-center gap-2 bg-white/5 border border-white/10 px-5 py-2 rounded-full text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#c5a059]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        المملكة العربية السعودية
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 -mt-12 relative z-10">
+        
+        <!-- Summary -->
+        <section class="section-card p-10 mb-8">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2 uppercase tracking-widest">
+                الملخص المهني
+            </h2>
+            <p class="text-lg leading-relaxed text-slate-100 opacity-90">
+                محامي ومستشار قانوني في شركة "روّاد الأنظمة للمحاماة"، متخصص في القضايا العمالية والإدارية. يجمع بين المعرفة الأكاديمية المتينة من خلال دراسة علوم الأنظمة والخبرة العملية الواسعة في الترافع وتقديم الاستشارات القانونية، مما يجعله مرجعاً موثوقاً في معالجة القضايا العمالية المعقدة.
+            </p>
+        </section>
+
+        <!-- Education -->
+        <section class="section-card p-10 mb-8">
+            <h2 class="text-2xl font-bold mb-8 uppercase tracking-widest">المؤهل الأكاديمي</h2>
+            <div class="flex items-start gap-5 p-6 bg-white/5 rounded-xl border border-white/10">
+                <span class="text-3xl text-[#c5a059]">📜</span>
+                <div>
+                    <h3 class="font-bold text-white text-lg">بكالوريوس في علوم الأنظمة</h3>
+                    <p class="text-muted text-sm mt-1">كلية الحقوق | جامعة الملك عبد العزيز</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="section-card p-10 mb-8">
+            <h2 class="text-2xl font-bold mb-12 uppercase tracking-widest">المسيرة المهنية</h2>
+            
+            <div class="space-y-12 relative before:absolute before:right-[15px] before:top-0 before:bottom-0 before:w-[1px] before:bg-[#c5a059] before:opacity-20">
+                
+                <div class="relative pr-12">
+                    <div class="absolute right-0 top-1 w-8 h-8 timeline-dot rounded-full z-20"></div>
+                    <h3 class="text-xl font-bold text-white">محامي ومستشار قانوني | شركة روّاد الأنظمة للمحاماة</h3>
+                    <p class="text-muted mt-3">تقديم الدعم القانوني والتمثيل القضائي المتخصص لعملاء الشركة في مختلف المجالات القانونية.</p>
+                </div>
+
+                <div class="relative pr-12">
+                    <div class="absolute right-0 top-1 w-8 h-8 timeline-dot rounded-full z-20"></div>
+                    <h3 class="text-xl font-bold text-white">محامي ومستشار قانوني | مكتب مطلق علي النجراني</h3>
+                    <p class="text-muted mt-3">اكتساب خبرات عملية متنوعة من خلال الترافع وتقديم الاستشارات في مجموعة واسعة من القضايا القانونية.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Credentials -->
+        <section class="section-card p-10 mb-8">
+            <h2 class="text-2xl font-bold mb-8 uppercase tracking-widest">الاعتمادات والتراخيص</h2>
+            <div class="flex items-center gap-4 p-5 bg-white/5 rounded-lg border border-[#c5a059]/30">
+                <div class="w-12 h-12 rounded-full bg-[#c5a059]/20 flex items-center justify-center text-[#c5a059] text-xl">✓</div>
+                <span class="text-white font-medium text-lg">مستشار عمالي مرخص لدى وزارة الموارد البشرية والتنمية الاجتماعية</span>
+            </div>
+        </section>
+
+        <!-- Skills & Expertise -->
+        <section class="section-card p-10">
+            <h2 class="text-2xl font-bold mb-8 uppercase tracking-widest">مجالات الخبرة</h2>
+            <div class="flex flex-wrap gap-3">
+                <span class="badge">القانون العمالي السعودي</span>
+                <span class="badge">القانون الإداري</span>
+                <span class="badge">المرافعة والمدافعة</span>
+                <span class="badge">الاستشارات القانونية</span>
+                <span class="badge">نظام الموارد البشرية</span>
+                <span class="badge">صياغة المذكرات القانونية</span>
+                <span class="badge">تسوية النزاعات العمالية</span>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-16 text-slate-400 text-sm">
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="رواد الأنظمة, PLC, خدمات قانونية, شركة محاماة, محاماة, محامي, استشارات قانونية, مكتب محاماة">
+    <meta name="author" content="شركة رواد الأنظمة (PLC)">
+  <meta property="og:type" content="website">
+<meta property="og:url" content="https://plc12.netlify.app/">
+<meta property="og:title" content="شركة رواد الأنظمة | Pioneers of Law Co.">
+<meta property="og:description" content="خدمات قانونية متخصصة باحترافية عالية">
+<meta property="og:image" content="https://plc12.netlify.app/images/plc.png">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://plc12.netlify.app/">
+<meta name="twitter:title" content="شركة رواد الأنظمة | Pioneers of Law Co.">
+<meta name="twitter:description" content="خدمات قانونية متخصصة باحترافية عالية">
+<meta name="twitter:image" content="https://plc12.netlify.app/images/plc.png">
+    <title>شركة رواد الأنظمة | Pioneers of Law Co.</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #2d5869; 
+            --text-light: #464646;
+            --bg-dark: #ffffff;
+            --card-hover: #fff7ea;
+            --placeholder-bg: #2d5869
+;
+        }
+
+       body {
+    font-family: 'Cairo', sans-serif;
+    /* التعديل هنا: إضافة التدرج اللوني */
+    background: linear-gradient(145deg, #e9eff0 0%, #e9eff0 100%);
+    height: 100%;
+    background-attachment: fixed; /* لجعل الخلفية ثابتة أثناء التمرير */
+    color: #2d2d2d;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+        /* Navbar Styling */
+        .navbar {
+            background: linear-gradient(200deg, rgba(197, 160, 89, 0.85) 20%, #2d5869 85%);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--secondary-color);
+            padding: 0.8rem 0;
+            transition: transform 0.4s ease, background 0.3s ease;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1050;
+        }
+
+        /* Scroll Hide Class */.value-card .img-placeholder-box img {
+    filter: brightness(1.5) contrast(0.8); /* يزيد السطوع ويقلل التباين */
+    opacity: 0.9; /* يجعلها شفافة قليلاً لتأخذ من لون الخلفية */
+}
+        .navbar-hidden {
+            transform: translateY(-100%);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .nav-link {
+            color: #ededed;
+            font-size: 1rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+            font-weight: 400;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+
+        /* Mobile Menu Styling */
+        .navbar-toggler {
+            border-color: rgba(155, 153, 153, 0.5);
+            padding: 4px 8px;
+        }
+        
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        
+        .navbar-toggler-icon {
+            filter: invert(1);
+        }
+
+        @media (max-width: 991px) {
+            .navbar-collapse {
+            background:#861d492d;
+                margin-top: 10px;
+                border-radius: 10px;
+                padding: 15px;
+                border: 1px solid var(--secondary-color);
+            }
+            .nav-link {
+                padding: 10px 15px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            .nav-link:last-child {
+                border-bottom: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 280px 0 100px;
+            text-align: center;
+            background: linear-gradient(rgba(41, 124, 168, 0), rgba(233, 228, 209, 0.419)), 
+                        url('images/law.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .section-title {
+            color: var(--secondary-color);
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        /* Cards Styling */
+        .value-card {
+            background-color: var(--bg-dark);
+            border: 1px solid #861d4930;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            height: 100%;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--secondary-color);
+            background-color: var(--card-hover);
+        }
+
+        /* Gold Title for Expertise Cards */
+        .expertise-card h3 {
+            color: var(--secondary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .show-more {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            opacity: 0.8;
+            border-bottom: 1px dashed var(--secondary-color);
+        }
+
+       .img-placeholder-box {
+    width: 100%; 
+    height: 100px;
+    background-color: var(--placeholder-bg);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid rgba(197, 160, 89, 0.1);
+    border-radius: 8px;
+}
+        /* Gallery Section Styles */
+        .gallery-container {
+            position: relative;
+            max-height: 250px; 
+            overflow: hidden;
+            transition: max-height 0.8s ease-in-out;
+        }
+
+        .gallery-container.expanded {
+            max-height: 2000px; 
+        }
+
+        .gallery-fade {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(to bottom, transparent, #ffffff);
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+
+        .gallery-container.expanded .gallery-fade {
+            opacity: 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            padding-bottom: 50px;
+        }
+
+        @media (max-width: 992px) {
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+            .gallery-container { max-height: 350px; }
+        }
+        @media (max-width: 576px) {
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-container { max-height: 450px; }
+        }
+
+        .gallery-item {
+    background-color: #ffffff !important;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 10px;
+}
+
+        
+
+        .btn-show-gallery {
+            background-color: transparent;
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-show-gallery:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        /* Team Section Styles */
+     .team-grid {
+    display: flex; /* تحويله إلى Flex لسهولة التوسيط */
+    flex-wrap: wrap; /* السماح بالعناصر بالنزول لسطر جديد */
+    justify-content: center; /* هذا هو السر: توسيط العناصر في المنتصف تماماً */
+    gap: 20px;
+    width: 100%;
+    margin: 0 auto;
+}
+/* تنسيق مطور لكروت الفريق لتوحيد الارتفاع */
+.team-card {
+    width: calc(20% - 20px); 
+    min-width: 200px;
+    background-color: var(--bg-dark);
+    border: 1px solid #861d4935;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s;
+    /* السر هنا: استخدام flex وتوزيع المحتوى */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* يوزع العناصر بحيث يكون الزر دائماً بالأسفل */
+    align-items: center;
+}
+
+/* توحيد ارتفاع منطقة النص (الاسم والمسمى) */
+.team-info-wrapper {
+    flex-grow: 1; /* تجعل منطقة النص تأخذ المساحة المتاحة وتدفع الزر للأسفل */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.team-card h4 {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-weight: bold;
+    min-height: 2.5rem; /* توحيد ارتفاع منطقة الاسم */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-card p {
+    font-size: 0.85rem;
+    color: #969696;
+    margin-bottom: 0;
+    min-height: 3.5rem; /* توحيد ارتفاع المسمى الوظيفي */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.4;
+}
+
+/* تنسيق الزر ليظهر بشكل ثابت */
+.cv-btn {
+    width: 100%; /* اختياري: لجعل الزر بعرض الكرت */
+    max-width: 150px;
+    margin-top: auto; /* دفع إضافي للأسفل */
+}
+
+/* ضبط التوسيط في الجوال (كرتين في السطر) */
+@media (max-width: 576px) {
+    .team-card {
+        width: calc(50% - 15px); /* كرتين في السطر مع مراعاة الفراغات */
+        min-width: 140px;
+    }
+    .team-grid {
+        gap: 10px;
+        padding: 0 10px;
+    }
+}
+@media (max-width: 576px) {
+    /* --- تعديل شبكة المجالات --- */
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px; /* مسافة أصغر لتناسب عرض الشاشة */
+    }
+
+    .expertise-card h3 {
+        font-size: 0.85rem;
+        min-height: 40px;
+    }
+
+    .expertise-card {
+        padding: 10px;
+    }
+
+    .expertise-card .img-placeholder-box {
+        height: 80px !important;
+    }
+
+    .expertise-card .img-placeholder-box img {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    /* --- تعديل شبكة الفريق ليصبح 2 في السطر --- */
+    .team-grid {
+        /* إجبار الشبكة على عرض عمودين متساويين في الجوال */
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 10px;
+        padding: 0 10px; /* مسافة بسيطة عن حواف الشاشة */
+    }
+
+    .team-card {
+        min-height: auto; /* ترك الارتفاع يتحدد تلقائياً ليناسب المحتوى */
+        padding: 12px;
+    }
+
+    .team-img-frame {
+        width: 90px; /* تصغير حجم الدائرة قليلاً لتناسب المربع الجديد */
+        height: 90px;
+        margin-bottom: 10px;
+    }
+
+    .team-card h4 {
+        font-size: 0.95rem; /* تصغير اسم الشخص */
+        margin-bottom: 5px;
+    }
+
+    .team-card p {
+        font-size: 0.75rem; /* تصغير المسمى الوظيفي */
+        height: auto; /* إزالة الارتفاع الثابت للنص */
+        margin-bottom: 10px;
+    }
+
+    .cv-btn {
+        padding: 4px 10px; /* تصغير زر السيرة الذاتية قليلاً */
+        font-size: 0.75rem;
+    }
+}
+        .team-card:hover {
+            border-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        .team-img-frame {
+            width: 120px;
+            height: 120px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+
+        .team-card h4 {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .team-card p {
+            font-size: 0.85rem;
+            color: #969696;
+            margin-bottom: 15px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cv-btn {
+            background-color: transparent;
+            color: var(--secondary-color);
+            border: 1px solid var(--secondary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .cv-btn:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        /* Collaborating Offices Section */
+        
+/* تنسيق شبكة المكاتب لتشغل كامل عرض الحاوية */
+/* تنسيق قسم المكاتب ليكون في سطر واحد كامل */
+.offices-grid {
+    display: flex;
+    justify-content: space-between; /* توزيع المسافات بالتساوي */
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.office-card {
+    flex: 1; /* يجعل كل كرت يأخذ مساحة متساوية في السطر */
+    background-color: #d1c2a6;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    border-radius: 12px;
+    padding: 25px 10px;
+    text-align: center;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.office-card:hover {
+    background-color:#eae3d6;
+    border-color: var(--secondary-color);
+    transform: translateY(-5px);
+}
+
+/* تكبير الشعار */
+.office-card .img-placeholder-box {
+    width: 100px; 
+    height: 65px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.office-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.486));
+}
+
+.office-card h4 {
+    color: var(--secondary-color);
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.office-card .city {
+    font-size: 0.85rem;
+    color: #502323;
+    margin-bottom: 10px;
+}
+
+.office-card .details-text {
+    font-size: 0.75rem;
+    color: #000000;
+    line-height: 1.5;
+}
+
+/* التوافق مع الجوال: تحويلها لأعمدة عند صغر الشاشة */
+@media (max-width: 992px) {
+    .offices-grid {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .office-card {
+        flex: none;
+        width: 45%; /* كرتين في الصف عند الشاشات المتوسطة */
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .office-card {
+        width: 100%; /* كرت واحد في الصف عند الجوال */
+    }
+}
+
+        /* Contact Section Styling */
+        .contact-info-card {
+            background-color: var(--bg-dark);
+            border: 1px solid var(--secondary-color);
+            border-radius: 15px;
+            padding: 30px;
+            height: 100%;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-left: 15px;
+        }
+
+        .contact-text h5 {
+            color: var(--secondary-color);
+            font-size: 1rem;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .contact-text p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666666;
+        }
+
+        /* Contact Buttons Styling */
+        .contact-actions {
+            margin-top: 25px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-contact {
+            flex: 1;
+            min-width: 140px;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transition: 0.3s;
+            border: none;
+        }
+
+        .btn-call {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            opacity: 0.9;
+            color: white;
+        }
+
+        .btn-whatsapp-modal {
+            width: 100%;
+            margin-top: 15px;
+            background-color: #25d366;
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .btn-whatsapp-modal:hover {
+            background-color: #128c7e;
+            color: white;
+        }
+
+        .btn-whatsapp-modal i {
+            margin-left: 10px;
+            font-size: 1.3rem;
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--secondary-color);
+            height: 100%;
+            min-height: 350px;
+        }
+
+        /* Custom Modal Styling */
+        .custom-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            backdrop-filter: blur(5px);
+        }
+
+        .custom-modal {
+            background: var(--bg-dark);
+            border: 2px solid var(--secondary-color);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-title {
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .modal-body-text {
+            color: white;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            min-height: 50px;
+        }
+
+        .modal-footer-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .close-modal-btn {
+    background: linear-gradient(135deg, #c5a059 0%, #dfcba5 50%, #c5a059 100%);
+            color:#ffffff ;
+            border: 1px solid #c5a059;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .close-modal-btn:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* Layout */
+        .section-padding { padding: 80px 0; }
+        .bg-alt {     background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+ }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            justify-content: center;
+        }
+
+        footer {
+            background-color: #c5a059;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid var(--secondary-color);
+        }
+        .gallery-item {
+            background-color: var(--bg-dark);
+            border: 1px solid rgba(197, 160, 89, 0.3);
+            border-radius: 10px;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            overflow: hidden;
+            padding: 10px; /* إضافة مسافة بسيطة حول الشعار */
+        }
+
+        .gallery-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* يضمن بقاء الصورة كاملة داخل المربع دون قص */
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+.gallery-item:hover {
+            background-color: #ffffff; /* تغيير الخلفية للون الأبيض عند التمرير */
+            border-color: var(--secondary-color);
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .gallery-item:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(0.9); /* تصغير بسيط للصورة لتبدو أجمل داخل الخلفية البيضاء */
+        }
+        .custom-modal {
+    background: linear-gradient(135deg, #777777 0%, #929292 50%, #777777     100%);
+            border: 2px solid var(--secondary-color);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 600px; /* زدت العرض قليلاً ليناسب النص الطويل */
+            width: 90%;
+            max-height: 80vh; /* تحديد أقصى ارتفاع للنافذة */
+            overflow-y: auto; /* إضافة شريط تمرير إذا كان النص طويلاً */
+            text-align: center;
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        .modal-body-text {
+            color: white;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            white-space: pre-line; /* لضمان ظهور الفواصل والأسطر الجديدة بشكل صحيح */
+            text-align: justify; /* لتنسيق النص من الجانبين */
+        }
+        .reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-aos] {
+    pointer-events: none;
+}
+.aos-animate {
+    pointer-events: auto !important;
+}
+/* هذا السطر يضمن أن الموقع لا يمنع الحركة */
+html, body {
+    overflow-x: hidden !important;
+}
+/* تنسيق زر استشارة مجانية */
+.btn-free-consultation {
+    background: linear-gradient(135deg, #c5a059 0%, #2d5869 100%);
+    color: #ffffff !important;
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1.2px solid #c59f59a7;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-free-consultation:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(134, 29, 72, 0.3);
+    background: linear-gradient(135deg, #c5a059 0%, #c59f5953 100%);
+    color: #ffffff;
+}
+
+/* تعديل بسيط للجوال لضمان تناسق الحجم */
+@media (max-width: 576px) {
+    .btn-free-consultation {
+        padding: 5px 12px;
+        font-size: 0.75rem;
+    }
+    .navbar-brand img {
+        height: 50px !important; /* تصغير الشعار قليلاً في الجوال لإعطاء مساحة للزر */
+    }
+}
+@media (max-width: 991px) {
+    /* ضبط الحاوية لتوزيع العناصر الثلاثة */
+    .navbar .container {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100%;
+    }
+
+    /* 1. الشعار يظل يمين (افتراضي) */
+    .navbar-brand {
+        margin: 0 !important;
+        order: 1;
+    }
+
+    /* 2. زر الاستشارة في المنتصف */
+    .btn-free-consultation {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        order: 2;
+        margin: 0 !important;
+        padding: 6px 12px !important;
+        font-size: 11px !important;
+        z-index: 10;
+    }
+
+    /* 3. زر الهمبرغر يسار */
+    .navbar-toggler {
+        order: 3;
+        margin: 0 !important;
+        border: none !important; /* اختياري لجعل الشكل أنظف */
+    }
+    @media (max-width: 991px) {
+    /* تعطيل تأثير الهفر على جميع العناصر التي تحتوي على تحريك */
+    .value-card, 
+    .expertise-card, 
+    .team-card,
+    .btn-free-consultation {
+        transform: none !important;
+        transition: none !important;
+        box-shadow: none !important; /* اختياري: إذا كنت تريد إزالة الظل الذي يظهر عند النزول */
+    }
+
+    /* التأكد من أن الصور داخل الكروت لا تتحرك تلقائياً */
+    .value-card:hover, 
+    .expertise-card:hover {
+        transform: none !important;
+    }
+}
+}
+/* تنسيق إضافي لتوحيد حجم الكروت */
+#expertise .card-grid {
+    display: grid;
+    /* تحديد عدد الأعمدة تلقائياً مع حد أدنى للعرض */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 280px)); 
+    gap: 20px;
+    align-items: stretch;
+    /* هذا السطر هو المسؤول عن توسيط الكروت في منتصف الحاوية */
+    justify-content: center; 
+    margin-bottom: 40px;
+}
+
+#expertise .expertise-card {
+    height: 100%; /* جعل الكرت يملأ كامل مساحة الخلية */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* توزيع المحتوى بالتساوي داخل الكرت */
+}
+
+/* تنسيق عناوين التصنيفات */
+.category-title {
+    color: var(--secondary-color);
+    font-weight: bold;
+    text-align: right; /* محاذاة لليمين */
+    margin-bottom: 25px;
+    margin-top: 40px;
+    border-right: 4px solid var(--secondary-color); /* إشارة بصرية جانبية */
+    padding-right: 15px;
+}
+/* تنسيق عنوان النافذة المنبثقة */
+#modalTitle {
+    color: var(--secondary-color) !important; /* اللون الثانوي */
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* تنسيق نص الوصف داخل النافذة */
+#modalBody {
+    color: #000000 !important; /* اللون الأسود */
+    font-size: 1.05rem;
+    line-height: 1.8;
+    text-align: justify;
+    white-space: pre-line;
+}
+
+/* تعديل خلفية النافذة لتكون فاتحة ليتضح الخط الأسود */
+.custom-modal {
+    background: #ffffff !important; /* خلفية بيضاء أو فاتحة جداً */
+    border: 2px solid var(--secondary-color);
+}
+/* تنسيق قسم المدونة القانونية والزر المموج */
+.blog-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.btn-gradient-blog {
+    display: inline-block;
+    width: 100%;
+    max-width: 800px; /* عرض عريض للزر */
+    padding: 20px 30px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff !important;
+    text-decoration: none;
+    background: linear-gradient(135deg, #2d5869 0%, #1d3640 100%); /* اللون المموج المطلوب */
+    border-radius: 15px;
+    transition: all 0.4s ease;
+    border: none;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.btn-gradient-blog:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    background: linear-gradient(135deg, #1d3640 0%, #2d5869 100%); /* عكس التدرج عند الهوفر */
+}
+
+@media (max-width: 576px) {
+    .btn-gradient-blog {
+        font-size: 1rem;
+        padding: 15px 20px;
+        width: 90%; /* مواءمة العرض في الجوال */
+    }
+}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg" id="mainNavbar">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="images/plc.png" alt="PLC Logo" style="height: 72px; width: auto;">
+        </a>
+
+        <div class="ms-auto d-flex align-items-center order-lg-last">
+            <a href="consultation.html" 
+               class="btn-free-consultation"> طلب استشارة</a>
+            
+            <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#why-us">لماذا نحن</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">عن الشركة</a></li>
+                <li class="nav-item"><a class="nav-link" href="#expertise">مجالاتنا</a></li>
+                <li class="nav-item"><a class="nav-link" href="#legal-blog">المدونة </a></li>
+                <li class="nav-item"><a class="nav-link" href="#team">فريقنا</a></li>
+                <li class="nav-item"><a class="nav-link" href="#offices">مكاتبنا</a></li>
+                <li class="nav-item"><a class="nav-link" href="#gallery">عملائنا</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">تواصل معنا</a></li>
+                
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1 style="color: #ffffff !important;">رواد الأنظمة</h1>
+    <p style="color: #ffffff !important;">نحمي حقوقكم بمهنية عالمية ورؤية محلية</p>
+</section>
+
+<!-- قسم: لماذا رواد الأنظمة؟ -->
+<section id="why-us" class="section-padding" data-aos="fade-down">
+    <div class="container">
+        <h2 class="section-title">لماذا رواد الأنظمة؟</h2>
+        <div class="row g-4 text-center justify-content-center">
+            
+            <div class="col-md-3 col-sm-6">
+                <div class="value-card">
+                    <div class="img-placeholder-box">
+                        <img src="images/why-1.png" alt="خبرة محلية" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <h3>خبرة محلية ودولية</h3>
+                    <p class="small">فريق يجمع بين فهم القوانين الإقليمية والمعايير الدولية.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="value-card">
+                    <div class="img-placeholder-box">
+                        <img src="images/why-2.png" alt="التزام بالسرية" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <h3>التزام بالسرية</h3>
+                    <p class="small">نتعامل مع كافة القضايا بأعلى مستويات الخصوصية والأمان.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="value-card">
+                    <div class="img-placeholder-box">
+                        <img src="images/why-4.png" alt="حلول وقائية" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <h3>حلول وقائية</h3>
+                    <p class="small">لا نعالج النزاعات فقط، بل نسعى لتجنبها عبر الاستشارات الدقيقة.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <div class="value-card">
+                    <div class="img-placeholder-box">
+                        <img src="images/why-3.png" alt="تواصل مستمر" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <h3>تواصل مستمر</h3>
+                    <p class="small">نحرص على إبقاء شركائنا على اطلاع دائم بمستجدات قضاياهم.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- قسم: عن الشركة -->
+<section id="about" class="section-padding bg-alt" data-aos="fade-down">
+    <div class="container">
+        <h2 class="section-title">عن الشركة</h2>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="value-card">
+                    <h3>فلسفتنا في العمل</h3>
+                    <p class="small">نؤمن أننا شركاؤك في مسيرة تحقيق أهدافك في جميع المسارات القانونية.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="value-card">
+                    <h3>رسالتنا</h3>
+                    <p class="small">المساهمة في ترسيخ مبادئ القانون وتقديم خدماتنا بمهنية وكفاءة عالية.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="value-card">
+                    <h3>رؤيتنا</h3>
+                    <p class="small">بالعلم والقانون تبنى الأمم، ونعطي لكل ذي حق حقه من خلال تجربتنا الوفيرة.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- قسم: مجالاتنا -->
+<section id="expertise" class="section-padding" data-aos="fade-down">
+    <div class="container">
+        <h2 class="section-title text-center">مجالاتنا القانونية</h2>
+
+        <!-- تصنيف: قضايا الأفراد -->
+        <h4 class="category-title">قضايا الأفراد</h4>
+        <div class="card-grid mb-5">
+            <div class="value-card expertise-card" onclick="openModal('شؤون الأسرة والتركات  ', '• قضايا الطلاق والخلع والنفقة والحضانة...')">
+                <div class="img-placeholder-box"><img src="images3/7.png" alt="الأحوال الشخصية" style="width: 80px; height: 80px; object-fit: contain;"></div>
+                <h3>شؤون الأسرة والتركات </h3>
+                <span class="show-more">عرض المزيد..</span>
+            </div>
+
+            <div class="value-card expertise-card" onclick="openModal('القضايا الجنائية', '• الدفاع في القضايا الجنائية (سرقة، نصب، إيذاء)...')">
+                <div class="img-placeholder-box"><img src="images3/8.png" alt="القضايا الجنائية" style="width: 80px; height: 80px; object-fit: contain;"></div>
+                <h3>القضايا الجنائية</h3>
+                <span class="show-more">عرض المزيد..</span>
+            </div>
+
+            <div class="value-card expertise-card" onclick="openModal('القضايا العمالية', '• صياغة عقود العمل واللوائح الداخلية للشركات...')">
+                <div class="img-placeholder-box"><img src="images3/9.png" alt="القضايا العمالية" style="width: 80px; height: 80px; object-fit: contain;"></div>
+                <h3>القضايا العمالية</h3>
+                <span class="show-more">عرض المزيد..</span>
+            </div>
+        </div>
+
+        <!-- تصنيف: قضايا الشركات -->
+        <h4 class="category-title">قضايا الشركات</h4>
+        <div class="card-grid mb-5">
+            <div class="value-card expertise-card" onclick="openModal('قطاع الأعمال والشركات', '• تأسيس الشركات...\n• صياغة ومراجعة العقود التجارية.')">
+                <div class="img-placeholder-box"><img src="images3/5.png" alt="قطاع الأعمال" style="width: 80px; height: 80px; object-fit: contain;"></div>
+                <h3>قطاع الأعمال والشركات</h3>
+                <span class="show-more">عرض المزيد..</span>
+            </div>
+
+           <div class="value-card expertise-card" onclick="openModal('الاستثمار الأجنبي', 'تحليل البيئة الاستثمارية المحلية وتقييم المخاطر القانونية و إجراءات تأسيس الشركات والتراخيص\n\n--------------------------------------------------\n\nأولاً: تحليل البيئة الاستثمارية المحلية وتقييم المخاطر القانونية:\n• شرح التشريعات المنظمة للاستثمار الأجنبي (قوانين تملك الأجانب، القيود على الأنشطة).\n• إعداد تقارير تفصيلية عن المخاطر التشريعية والتنظيمية للمشروع.\n• تقييم تأثير القوانين الجديدة على الاستثمار القائم.\n• تسهيل إجراءات الاستثمار في المناطق الحرة أو الاقتصادية الخاصة.\n• شرح المزايا القانونية والضريبية لهذه المناطق.\n• تقديم نصائح حول الهيكلة القانونية الأمثل للاستثمار.\n\n--------------------------------------------------\n\nثانياً: إجراءات تأسيس الشركات والتراخيص:\n• إعداد المستندات اللازمة لتسجيل الشركات الأجنبية أو الفروع.\n• تسجيل المستثمر الأجنبي والموافقات الحكومية (وزارة الاستثمار والجهات التنظيمية).\n• تسجيل العلامات التجارية وحماية الملكية الفكرية محلياً.\n• تقديم الاستشارات حول إجراءات تصفية الاستثمار أو بيع الحصص.\n• إعادة هيكلة الشركات أو عمليات الدمج مع كيانات محلية.')">
+    <div class="img-placeholder-box" style="height: 120px;">
+        <img src="images3/11.png" alt="الاستثمار الأجنبي" style="width: 100px; height: 100px; object-fit: contain;">
+    </div>
+    <h3>الاستثمار الأجنبي</h3>
+    <span class="show-more">عرض المزيد..</span>
+</div>
+
+            <div class="value-card expertise-card" onclick="openModal('حقوق الملكية الفكرية', '• تسجيل العلامات التجارية...\n• حماية العلامات التجارية...')">
+                <div class="img-placeholder-box"><img src="images3/4.png" alt="الملكية الفكرية" style="width: 80px; height: 80px; object-fit: contain;"></div>
+                <h3>حقوق الملكية الفكرية</h3>
+                <span class="show-more">عرض المزيد..</span>
+            </div>
+        </div>
+
+        <!-- تصنيف: قضايا العقارات والمقاولات -->
+        <h4 class="category-title">قضايا العقارات والمقاولات</h4>
+        <div class="card-grid mb-5">
+            <div class="value-card expertise-card" onclick="openModal('الخدمات المتعلقة بالعقارات', '• صياغة عقود البيع والشراء والإيجار...')">
+                <div class="img-placeholder-box"><img src="images3/6.png" alt="الخدمات العقارية" style="width: 80px; height: 80px; object-fit: contain;"></div>
+                <h3>الخدمات المتعلقة بالعقارات</h3>
+                <span class="show-more">عرض المزيد..</span>
+            </div>
+        </div>
+
+        <!-- تصنيف: أخرى -->
+        <h4 class="category-title">أخرى</h4>
+        <div class="card-grid">
+            <div class="value-card expertise-card" onclick="openModal('التمثيل القضائي وحل المنازعات', '• تمثيل العملاء في جميع إجراءات التقاضي...')">
+                <div class="img-placeholder-box"><img src="images3/3.png" alt="التمثيل القضائي" style="width: 80px; height: 80px; object-fit: contain;"></div>
+                <h3>التمثيل القضائي وحل المنازعات</h3>
+                <span class="show-more">عرض المزيد..</span>
+            </div>
+
+            <div class="value-card expertise-card" onclick="openModal('نزاعات القانون الدولي والتحكيم', '• حل النزاعات التجارية الدولية عبر التحكيم...')">
+                <div class="img-placeholder-box"><img src="images3/10.png" alt="التحكيم الدولي" style="width: 80px; height: 80px; object-fit: contain;"></div>
+                <h3>نزاعات القانون الدولي والتحكيم</h3>
+                <span class="show-more">عرض المزيد..</span>
+            </div>
+
+            <div class="value-card expertise-card" onclick="openModal('قضايا القانون البحري والجوي', '• منازعات الشحن والنقل البحري...')">
+                <div class="img-placeholder-box"><img src="images3/12.png" alt="القانون البحري" style="width: 80px; height: 80px; object-fit: contain;"></div>
+                <h3>قضايا القانون البحري والجوي</h3>
+                <span class="show-more">عرض المزيد..</span>
+            </div>
+
+            <div class="value-card expertise-card" onclick="openModal('خدمات قانونية إضافية', 'تقديم البرامج التدريبية المتخصصة في المجالات القانونية وخدمات التوثيق وإصدار الوكالات وفسخها والإفراغ وتوثيق العقود.\n\n--------------------------------------------------\n\nالامتثال للقوانين والأنظمة: نضمن الالتزام بقوانين العمل المحلية وتوطين الوظائف وشروط العقود، مع مراجعة الالتزامات الضريبية والاتفاقيات الدولية لتجنب الازدواج الضريبي، ومتابعة كافة متطلبات الإفصاح والشفافية المالية وفقاً للأنظمة.\n\n--------------------------------------------------\n\nالتفاوض وصياغة العقود: نتولى مهام التفاوض مع الشركاء المحليين أو الجهات الحكومية حول شروط الاستثمار، وصياغة عقود الشراكة والتوزيع والامتياز التجاري، بالإضافة إلى مراجعة عقود المشتريات الحكومية والمناقصات.\n\n--------------------------------------------------\n\nالحوافز والاتفاقيات الدولية: نعمل على تمكين المستثمرين من الاستفادة القصوى من الحوافز المقدمة مثل الإعفاءات الضريبية وتخصيص الأراضي الصناعية وغيرها من المزايا الاستثمارية.\n\n--------------------------------------------------\n\nدراسات الجدوى القانونية: إعداد تقارير تفصيلية عن المخاطر التشريعية والتنظيمية وتقييم أثر القوانين الجديدة على الاستثمارات القائمة، وتقديم النصائح لتأمين الاستثمار، والتنسيق مع مؤسسات التمويل لاستيفاء المتطلبات القانونية ومراجعة اتفاقيات التمويل.')">
+    <div class="img-placeholder-box" style="height: 120px;">
+        <img src="images3/13.png" alt="خدمات إضافية" style="width: 100px; height: 100px; object-fit: contain;">
+    </div>
+    <h3>خدمات قانونية إضافية</h3>
+    <span class="show-more">عرض المزيد..</span>
+</div>
+    </div>
+</section>
+<!-- قسم: المدونة القانونية -->
+<section id="legal-blog" class="blog-section bg-alt" data-aos="fade-up">
+    <div class="container">
+        <h2 class="section-title">المدونة القانونية</h2>
+        <div class="row justify-content-center mt-4">
+            <div class="col-12 px-4">
+                <!-- الزر العريض باللون المموج -->
+                <a href="blog.html" class="btn-gradient-blog">
+                    <i class="bi bi-journal-text ms-2"></i>
+                    تعرّف على أبرز المقالات القانونية
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- قسم: فريقنا -->
+<!-- قسم: فريقنا (بعد التعديل) -->
+<section id="team" class="section-padding" data-aos="fade-down">
+    <div class="container">
+        <h2 class="section-title">فريقنا</h2>
+        <div class="team-grid">
+<div class="team-grid" id="team" data-aos="fade-down">
+    <div class="team-card">
+        <div class="team-img-frame">
+            <img src="images2/adel.png" alt="عادل العتيبي" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h4>عادل العتيبي</h4>
+        <p>محامي ومستشار قانوني وموثق</p>
+        <a href="adel.html" class="cv-btn">السيرة الذاتية</a>
+    </div>
+
+    <div class="team-card">
+        <div class="team-img-frame">
+            <img src="images2/doc.png" alt="د. عويس عبدالوهاب" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h4>د. عويس عبدالوهاب</h4>
+        <p>مستشار قانوني ومحكم تجاري</p>
+        <a href="awais.html" class="cv-btn">السيرة الذاتية</a>
+    </div>
+
+    <div class="team-card">
+        <div class="team-img-frame">
+            <img src="images2/abd.png" alt="عبد الله الجهوري" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h4>عبد الله الجهوري</h4>
+        <p>رئيس تنفيذي</p>
+        <a href="abdullah.html" class="cv-btn">السيرة الذاتية</a>
+    </div>
+
+    <div class="team-card">
+        <div class="team-img-frame">
+            <img src="images2/moha.png" alt="محمد حلواني" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h4>محمد حلواني</h4>
+        <p>محامي ومستشار قانوني وموثق</p>
+        <a href="mohammed.html" class="cv-btn">السيرة الذاتية</a>
+    </div>
+
+    <div class="team-card">
+        <div class="team-img-frame">
+            <img src="images2/moh.png" alt="مهند المحمدي" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h4>مهند المحمدي</h4>
+        <p>محامي و مستشار قانوني</p>
+        <a href="mohanned.html" class="cv-btn">السيرة الذاتية</a>
+    </div>
+
+           
+ <div class="team-card">
+        <div class="team-img-frame">
+            <img src="images2/p1.jpg" alt="اسم الموظف" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h4> نزيه نعيم عابد شاهين</h4>
+        <p>محامي متدرب </p>
+        <a href="nazeh.html" class="cv-btn">السيرة الذاتية</a>
+    </div>
+
+    <div class="team-card">
+        <div class="team-img-frame">
+            <img src="images2/p2.jpg" alt="اسم الموظف" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h4> عبدالرحمن عايض مطلق المعبدي</h4>
+        <p> محامي متدرب</p>
+        <a href="abdulrahman.html" class="cv-btn">السيرة الذاتية</a>
+    </div>
+
+    <div class="team-card">
+        <div class="team-img-frame">
+            <img src="images2/p3.jpg" alt="اسم الموظف" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h4> محمد أبو العلا </h4>
+        <p> ممثل العلاقات العامة في شركة رواد الأنظمة للمحاماة</p>
+        <a href="mhmd.html" class="cv-btn">السيرة الذاتية</a>
+           </div>
+    </div>
+</section>
+
+   
+<!-- قسم: مكاتب متعاونة -->
+<section id="offices" class="section-padding" data-aos="fade-down">
+    <div class="container">
+        <h2 class="section-title">مكاتبنا المتعاونة دولياً</h2>
+        <div class="offices-grid">
+           <div class="offices-grid">
+    <div class="office-card">
+        <div class="img-placeholder-box">
+            <img src="images2/uae.png" alt="الإمارات" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+        </div>
+        <h4>الإمارات</h4>
+        <span class="city">دبي</span>
+        <div class="details small mt-2">مكتب د. جان فرانسوا ريكس <br> مكتب أ. إيمان العلي</div>
+    </div>
+
+    <div class="office-card">
+        <div class="img-placeholder-box">
+            <img src="images2/egypt.webp" alt="مصر" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+        </div>
+        <h4>مصر</h4>
+        <span class="city">القاهرة</span>
+        <div class="details small mt-2">مكتب عويس عبد الوهاب <br> مكاتب النقض: علي سالم وتيمور محمد</div>
+    </div>
+
+    <div class="office-card">
+        <div class="img-placeholder-box">
+            <img src="images2/turkey.webp" alt="تركيا" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+        </div>
+        <h4>تركيا</h4>
+        <span class="city">إسطنبول</span>
+        <div class="details small mt-2">مكتب إيمين كاناسانكاتان</div>
+    </div>
+
+    <div class="office-card">
+        <div class="img-placeholder-box">
+            <img src="images2/syria.webp" alt="سوريا" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+        </div>
+        <h4>سوريا</h4>
+        <span class="city">دمشق</span>
+        <div class="details small mt-2">مكتب المحامي سام بيطار</div>
+    </div>
+
+    <div class="office-card">
+        <div class="img-placeholder-box">
+            <img src="images2/lebanon.webp" alt="لبنان" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+        </div>
+        <h4>لبنان</h4>
+        <span class="city">بيروت</span>
+        <div class="details small mt-2">مكتب المحامي فراس التل</div>
+    </div>
+</div>
+</section>
+
+<section id="gallery" class="section-padding bg-alt text-center" data-aos="fade-down">
+    <div class="container">
+        <h2 class="section-title">عملائنا</h2>
+        <div id="galleryContainer" class="gallery-container">
+           <div class="gallery-grid">
+    <div class="gallery-item"><img src="images/img22.jpeg" alt="صورة 4"></div>
+    <div class="gallery-item"><img src="images/img21.jpg" alt="صورة 5"></div>
+    <div class="gallery-item"><img src="images/img8.png" alt="صورة 8"></div>
+    <div class="gallery-item"><img src="images/img1.png" alt="صورة 1"></div>
+    <div class="gallery-item"><img src="images/img3.png" alt="صورة 3"></div>
+    <div class="gallery-item"><img src="images/img6.png" alt="صورة 6"></div>
+    <div class="gallery-item"><img src="images/img7.png" alt="صورة 7"></div>
+    <div class="gallery-item"><img src="images/img2.png" alt="صورة 2"></div>
+    <div class="gallery-item"><img src="images/img9.png" alt="صورة 9"></div>
+    <div class="gallery-item"><img src="images/img10.png" alt="صورة 10"></div>
+    <div class="gallery-item"><img src="images/img11.png" alt="صورة 11"></div>
+    <div class="gallery-item"><img src="images/img12.png" alt="صورة 12"></div>
+    <div class="gallery-item"><img src="images/img13.png" alt="صورة 13"></div>
+    <div class="gallery-item"><img src="images/img14.png" alt="صورة 14"></div>
+    <div class="gallery-item"><img src="images/img15.png" alt="صورة 15"></div>
+    <div class="gallery-item"><img src="images/img16.png" alt="صورة 16"></div>
+    <div class="gallery-item"><img src="images/img17.png" alt="صورة 17"></div>
+    <div class="gallery-item"><img src="images/img18.png" alt="صورة 18"></div>
+    <div class="gallery-item"><img src="images/img19.png" alt="صورة 19"></div>
+    <div class="gallery-item"><img src="images/img20.png" alt="صورة 20"></div>
+     <div class="gallery-item"><img src="images/img4.png" alt="صورة 21"></div>
+    <div class="gallery-item"><img src="images/img5.png" alt="صورة 22"></div>
+</div>
+            <div id="galleryFade" class="gallery-fade"></div>
+        </div>
+        <button id="toggleGalleryBtn" class="btn-show-gallery" onclick="toggleGallery()">عرض الكل</button>
+    </div>
+</section>
+
+<!-- قسم: تواصل معنا -->
+<section id="contact" class="section-padding" data-aos="fade-down">
+    <div class="container">
+        <h2 class="section-title">تواصل معنا</h2>
+        <div class="row g-4">
+            <div class="col-lg-5">
+                <div class="contact-info-card shadow">
+                    <div class="contact-item">
+                        <i class="bi bi-geo-alt-fill contact-icon"></i>
+                        <div class="contact-text">
+                            <h5>الموقع الرئيسي</h5>
+                            <p>جدة - 3404 شارع الأمير محمد بن عبدالعزيز - حي الفيصلية</p>
+                            <p class="small text-secondary">مبنى الجول - مكتب رقم 102</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="bi bi-clock-fill contact-icon"></i>
+                        <div class="contact-text">
+                            <h5>أوقات الدوام</h5>
+                            <p>الأحد - الخميس: 9:00 ص - 5:00 م</p>
+                            <p class="small text-secondary">الجمعة والسبت: مغلق</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="bi bi-telephone-fill contact-icon"></i>
+                        <div class="contact-text">
+                            <h5>الهاتف والواتساب</h5>
+                            <p>0502051557</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="bi bi-envelope-at-fill contact-icon"></i>
+                        <div class="contact-text">
+                            <h5>البريد الإلكتروني</h5>
+                            <p>plc@ilcfirm.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-actions mt-4">
+                        <a href="tel:0502051557" class="btn-contact btn-call">
+                            <i class="bi bi-telephone"></i> اتصل الآن
+                        </a>
+                        <a href="https://wa.me/966502051557" target="_blank" class="btn-contact btn-whatsapp">
+                            <i class="bi bi-whatsapp"></i> راسلنا واتساب
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="map-container shadow">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.7197413070294!2d39.179077299999996!3d21.5578112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3d03f1eb24631%3A0x7cb38fd7745c0173!2z2YXYsdmD2LIg2KfZhNis2YjZhA!5e0!3m2!1sar!2ssa!4v1775143442111!5m2!1sar!2ssa" 
+                        width="100%" height="100%" style="border:0; min-height: 450px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="modalOverlay" class="custom-overlay">
+    <div class="custom-modal">
+        <h2 id="modalTitle" class="modal-title">العنوان</h2>
+        <div id="modalBody" class="modal-body-text">محتوى تجريبي</div>
+        
+        <div class="modal-footer-actions">
+            <a id="modalWhatsAppBtn" href="#" target="_blank" class="btn-whatsapp-modal">
+                <i class="bi bi-whatsapp"></i>
+                استفسر عن هذه الخدمة عبر واتساب
+            </a>
+            <button class="close-modal-btn" onclick="closeModal()">إغلاق</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy;  شركة رواد الأنظمة (PLC)</p>
+</footer>
+
+<!-- Bootstrap Bundle JS (Required for Navbar Toggle) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // Navbar Scroll Logic
+    let lastScrollTop = 0;
+    const navbar = document.getElementById('mainNavbar');
+
+    window.addEventListener('scroll', function() {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Hide on scroll down, show on scroll up
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+            navbar.classList.add('navbar-hidden');
+        } else {
+            navbar.classList.remove('navbar-hidden');
+        }
+        
+        lastScrollTop = scrollTop;
+    });
+
+    // Close Mobile Menu on Link Click
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            const navbarCollapse = document.getElementById('navbarNav');
+            if (navbarCollapse.classList.contains('show')) {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                bsCollapse.hide();
+            }
+        });
+    });
+
+    function toggleGallery() {
+        const container = document.getElementById('galleryContainer');
+        const btn = document.getElementById('toggleGalleryBtn');
+        
+        if (container.classList.contains('expanded')) {
+            container.classList.remove('expanded');
+            btn.innerText = 'عرض الكل';
+        } else {
+            container.classList.add('expanded');
+            btn.innerText = 'إظهار أقل';
+        }
+    }
+
+    function openModal(title, content, isTeam = false) {
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalBody').innerText = content || "فارغ";
+        
+        const whatsappBtn = document.getElementById('modalWhatsAppBtn');
+        
+        if (isTeam) {
+            whatsappBtn.style.display = 'none';
+        } else {
+            whatsappBtn.style.display = 'flex';
+            const message = encodeURIComponent(`السلام عليكم، أود الاستفسار عن خدمة: ${title}`);
+            whatsappBtn.href = `https://wa.me/966502051557?text=${message}`;
+        }
+        
+        document.getElementById('modalOverlay').style.display = 'flex';
+        document.body.style.overflow = 'hidden'; 
+    }
+
+    function closeModal() {
+        document.getElementById('modalOverlay').style.display = 'none';
+        document.body.style.overflow = 'auto'; 
+    }
+
+    window.onclick = function(event) {
+        let overlay = document.getElementById('modalOverlay');
+        if (event.target == overlay) {
+            closeModal();
+        }
+    }
+    window.addEventListener('scroll', reveal);
+function reveal() {
+  var reveals = document.querySelectorAll('.reveal');
+  for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var revealTop = reveals[i].getBoundingClientRect().top;
+    if (revealTop < windowHeight - 150) {
+      reveals[i].classList.add('active');
+    }
+  }
+}
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+  // ننتظر حتى يتم تحميل كل العناصر في الصفحة
+  document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+          duration: 1000,
+          once: true,
+          offset: 100 // يبدأ التحريك قبل وصول العنصر بـ 100 بكسل
+      });
+  });
+</script>
+</body>
+</html>

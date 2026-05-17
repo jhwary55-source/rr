@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طلب استشارة | رواد الأنظمة</title>
+    <!-- استيراد الخط العربي -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS للشبكة والتنسيق -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2d5869;
+            --secondary-color: #c5a059;
+            --card-gradient: linear-gradient(145deg, #2d5869 0%, #1d3640 100%);
+        }
+
+        body {
+            font-family: 'Noto Sans Arabic', sans-serif;
+            background: linear-gradient(145deg, #e9eff0 0%, #e9eff0 100%);
+            background-attachment: fixed;
+            color: #333;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        /* تنسيق زر العودة العلوي */
+        .top-back-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 8px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: none;
+        }
+
+        .top-back-btn:hover {
+            transform: scale(1.05);
+            background-color: #d4ae6a;
+            color: var(--primary-color);
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, #c5a059 0%, #2d5869 100%);
+            border-bottom: 2px solid var(--secondary-color);
+            padding: 60px 0 40px 0; 
+            text-align: center;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .header-section h1 {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .consultation-card, .faq-section {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            margin-bottom: 50px;
+        }
+
+        .form-label {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .form-control, .form-select {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.25rem rgba(197, 160, 89, 0.25);
+        }
+
+        .btn-submit {
+            background: var(--card-gradient);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 700;
+            width: 100%;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(29, 83, 134, 0.4);
+            color: #fff;
+        }
+
+        #otherCaseType {
+            display: none;
+        }
+
+        .required-star {
+            color: #dc3545;
+        }
+
+        /* تنسيقات الأسئلة الشائعة */
+        .faq-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .faq-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
+            margin: 10px auto;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: #fdfaf4;
+            color: var(--primary-color);
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: var(--secondary-color);
+        }
+        
+        .accordion-item {
+            border-radius: 10px !important;
+            margin-bottom: 10px;
+            border: 1px solid #eee;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- زر العودة في الزاوية العلوية اليمنى -->
+    <a href="index.html" class="top-back-btn">
+        <span>العودة</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+        </svg>
+    </a>
+
+    <header class="header-section">
+        <div class="container">
+            <h1>طلب استشارة قانونية</h1>
+            <p>نسعد بخدمتكم وتوفير الحلول القانونية اللازمة</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <!-- نموذج طلب الاستشارة -->
+                <div class="consultation-card">
+                    <form id="consultationForm">
+                        <!-- حقل الاسم -->
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">الاسم الكامل <span class="required-star">*</span></label>
+                            <input type="text" class="form-control" id="fullName" placeholder="أدخل اسمك الثلاثي" required>
+                        </div>
+
+                        <div class="row">
+                            <!-- حقل رقم الجوال -->
+                            <div class="col-md-6 mb-3">
+                                <label for="phone" class="form-label">رقم الجوال <span class="required-star">*</span></label>
+                                <input type="tel" class="form-control" id="phone" placeholder="05xxxxxxxx" required>
+                            </div>
+                            <!-- حقل البريد الإلكتروني -->
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">البريد الإلكتروني</label>
+                                <input type="email" class="form-control" id="email" placeholder="example@mail.com">
+                            </div>
+                        </div>
+
+                        <!-- اختيار نوع القضية -->
+                        <div class="mb-3">
+                            <label for="caseType" class="form-label">نوع القضية / الخدمة المطلوبة <span class="required-star">*</span></label>
+                            <select class="form-select" id="caseType" onchange="toggleOtherCase(this)" required>
+                                <option value="" selected disabled>اختر من القائمة...</option>
+                                <option value="أخرى">أخرى (لأي موضوع لا يندرج تحت ما سبق)</option>
+                                <option value="التمثيل القضائي وحل المنازعات">التمثيل القضائي وحل المنازعات</option>
+                                <option value="الخدمات الاستشارية">الخدمات الاستشارية</option>
+                                <option value="العقود والاتفاقيات">العقود والاتفاقيات</option>
+                                <option value="حقوق الملكية الفكرية">حقوق الملكية الفكرية</option>
+                                <option value="قطاع الأعمال والشركات">قطاع الأعمال والشركات</option>
+                                <option value="الخدمات المتعلقة بالعقارات">الخدمات المتعلقة بالعقارات</option>
+                                <option value="قضايا الأحوال الشخصية">قضايا الأحوال الشخصية</option>
+                                <option value="القضايا الجنائية">القضايا الجنائية</option>
+                                <option value="القضايا العمالية">القضايا العمالية</option>
+                                <option value="نزاعات القانون الدولي والتحكيم">نزاعات القانون الدولي والتحكيم</option>
+                                <option value="قضايا القانون البحري والجوي">قضايا القانون البحري والجوي</option>
+                                <option value="الاستثمار الأجنبي">الاستثمار الأجنبي</option>
+                            </select>
+                        </div>
+
+                        <!-- حقل نوع القضية (يظهر فقط عند اختيار "أخرى") -->
+                        <div class="mb-3" id="otherCaseType">
+                            <label for="customCase" class="form-label">يرجى تحديد الموضوع <span class="required-star">*</span></label>
+                            <input type="text" class="form-control" id="customCase" placeholder="اكتب نوع القضية هنا">
+                        </div>
+
+                        <!-- وصف القضية -->
+                        <div class="mb-3">
+                            <label for="caseDescription" class="form-label">وصف القضية / تفاصيل الاستشارة <span class="required-star">*</span></label>
+                            <textarea class="form-control" id="caseDescription" rows="5" placeholder="يرجى كتابة شرح موجز لموضوع الاستشارة..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-submit">إرسال عبر الواتساب</button>
+                    </form>
+                </div>
+
+                <!-- قسم الأسئلة العامة (FAQ) -->
+                <div class="faq-section">
+                    <h3 class="faq-title">الأسئلة الشائعة</h3>
+                    <div class="accordion" id="faqAccordion">
+                        
+                        <!-- السؤال: هل الاستشارة مجانية؟ -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFree" aria-expanded="false" aria-controls="collapseFree">
+                                    هل الاستشارة القانونية مجانية؟
+                                </button>
+                            </h2>
+                            <div id="collapseFree" class="accordion-collapse collapse" aria-labelledby="headingFree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    نقدم <strong>تقييماً أولياً مجانياً</strong> لموضوعك عبر الواتساب لتحديد مدى حاجتك لإجراء قانوني. أما الجلسات الاستشارية المتخصصة والمفصلة، فتخضع لرسوم مهنية يتم إبلاغك بها مسبقاً بكل شفافية.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    كيف يتم تحديد موعد الاستشارة؟
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    بمجرد إرسال طلبك عبر النموذج، سيقوم فريقنا بالتواصل معك عبر الواتساب أو الاتصال الهاتفي لتحديد موعد يتناسب مع جدولك وجدول المستشار القانوني المختص، سواء كانت الاستشارة حضورية أو عن بُعد.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    ما هي ضمانات سرية المعلومات؟
+                                </button>d
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    السرية المهنية هي ركيزة أساسية في عملنا. نلتزم بحماية كافة البيانات والمستندات المشتركة معنا ولا يتم الاطلاع عليها إلا من قبل المستشار المختص بالقضية.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    هل يمكنني تقديم الاستشارة لجهة خارج المملكة؟
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    نعم، لدينا الخبرة الكافية في التعامل مع القضايا الدولية والتحكيم التجاري، ونقدم خدماتنا للمستثمرين الأجانب والشركات الدولية الراغبة في ممارسة أعمالها داخل المملكة.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS لاستخدام الـ Accordion -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function toggleOtherCase(selectElement) {
+    const otherDiv = document.getElementById('otherCaseType');
+    const customInput = document.getElementById('customCase');
+    
+    if (selectElement.value === 'أخرى') {
+        otherDiv.style.display = 'block';
+        customInput.setAttribute('required', 'required');
+    } else {
+        otherDiv.style.display = 'none';
+        customInput.removeAttribute('required');
+    }
+}
+
+document.getElementById('consultationForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const form = document.getElementById('consultationForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const loadingDiv = document.getElementById('loading');
+    const successDiv = document.getElementById('successMessage');
+
+    // جلب القيم الأساسية من الواجهة
+    const name = document.getElementById('fullName').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value || "غير محدد";
+    let caseType = document.getElementById('caseType').value;
+    if (caseType === 'أخرى') {
+        caseType = document.getElementById('customCase').value;
+    }
+    const description = document.getElementById('caseDescription').value;
+    const contactMethod = document.getElementById('contactMethod').value;
+
+    // تهيئة حالة الأزرار والتحميل
+    successDiv.style.display = 'none';
+    submitBtn.disabled = true;
+    loadingDiv.style.display = 'block';
+
+    // السيناريو الأول: التحويل المباشر للواتساب
+    if (contactMethod === 'whatsapp') {
+        const message = `*طلب استشارة قانونية جديدة*\n\n` +
+                      `*الاسم:* ${name}\n` +
+                      `*رقم الجوال:* ${phone}\n` +
+                      `*البريد:* ${email}\n` +
+                      `*نوع القضية:* ${caseType}\n\n` +
+                      `*تفاصيل الاستشارة:* \n${description}`;
+
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappNumber = "966502051557"; 
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+        window.open(whatsappUrl, '_blank');
+        submitBtn.disabled = false;
+        loadingDiv.style.display = 'none';
+        form.reset();
+        document.getElementById('otherCaseType').style.display = 'none';
+        
+    } else {
+        // السيناريو الثاني: الإرسال للسيرفر الحي والجديد الخاص بك على Render
+        const serverUrl = 'https://rwad-bfiy.onrender.com/api/consultation'; 
+
+        const requestData = {
+            name: name,
+            phone: phone,
+            email: email,
+            caseType: caseType,
+            description: description
+        };
+
+        try {
+            const response = await fetch(serverUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestData)
+            });
+            
+            const result = await response.json();
+
+            if (result.success) {
+                successDiv.style.display = 'block';
+                form.reset();
+                document.getElementById('otherCaseType').style.display = 'none';
+            } else {
+                alert('عذراً، واجه السيرفر مشكلة أثناء معالجة وإرسال البريد الإلكتروني.');
+            }
+        } catch (error) {
+            console.error(error);
+            alert('تعذر الاتصال بسيرفر رواد الأنظمة في الوقت الحالي، يرجى التحقق من اتصال الإنترنت.');
+        } finally {
+            submitBtn.disabled = false;
+            loadingDiv.style.display = 'none';
+        }
+    }
+});
+    </script>
+
+</body>
+</html>
